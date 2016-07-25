@@ -12,6 +12,10 @@ import com.improve.util.PersistenceUtil;
 
 public class ProductDAOImpl implements ProductDAO {
 	
+	public ProductDAOImpl() {
+		PersistenceUtil.buildEntityManagerFactory();
+	}
+	
 	public List<Product> getAllProducts() {
         EntityManager em = PersistenceUtil.getEntityManager();
         EntityTransaction transaction = em.getTransaction();

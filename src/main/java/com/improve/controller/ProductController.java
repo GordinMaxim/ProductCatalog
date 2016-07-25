@@ -17,15 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.improve.model.Category;
 import com.improve.model.Product;
+import com.improve.util.PersistenceUtil;
 
 public class ProductController extends HttpServlet {
 
 	private static String ERROR = "/error.jsp";
 	private static String LIST_PRODUCT = "/listProduct.jsp";
 	private static int PRICE_SCALE = 2;
-
+	
 	String forward;
-
+	
 	public ProductController() {
 
 	}
@@ -34,10 +35,10 @@ public class ProductController extends HttpServlet {
 			throws IOException, ServletException {
 		String action = request.getParameter("action");
 
+		PersistenceUtil.buildEntityManagerFactory();
 		if (action.equals("list")) {
 			forward = LIST_PRODUCT;
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("jcg-JPA");
-			EntityManager em = emf.createEntityManager();
+			EntityManager em = PersistenceUtil.getEntityManager();
 			List<Product> products = (List<Product>) em.createQuery("from Product").getResultList();
 			request.setAttribute("products", products);
 		}
@@ -47,8 +48,8 @@ public class ProductController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("jcg-JPA");
-		EntityManager em = emf.createEntityManager();
+
+		EntityManager em = PersistenceUtil.getEntityManager();
 		String category = request.getParameter("product_category");
 		String name = request.getParameter("product_name");
 		String priceFromStr = request.getParameter("product_price_from");
