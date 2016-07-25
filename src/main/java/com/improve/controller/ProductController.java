@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.improve.dao.ProductDAO;
+import com.improve.dao.ProductDAOImpl;
 import com.improve.model.Category;
 import com.improve.model.Product;
 import com.improve.util.PersistenceUtil;
@@ -26,9 +28,11 @@ public class ProductController extends HttpServlet {
 	private static int PRICE_SCALE = 2;
 	
 	String forward;
+	ProductDAO productDAO;
 	
 	public ProductController() {
-
+		super();
+		productDAO = new ProductDAOImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +45,12 @@ public class ProductController extends HttpServlet {
 			EntityManager em = PersistenceUtil.getEntityManager();
 			List<Product> products = (List<Product>) em.createQuery("from Product").getResultList();
 			request.setAttribute("products", products);
+		} else if (action.equals("edit")) {
+			
+		} else if (action.equals("delete")) { 
+			
+		} else {
+			forward = LIST_PRODUCT;
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
