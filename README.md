@@ -11,7 +11,7 @@
 Также перед запуском сервлета требуется создать базу данных __testdb__ с пользователем __root__ и паролем __test__  
 и таблицы _category_ и _product_ :
 
-''' sql 
+``` sql 
 CREATE TABLE category
 ( id INT(11) NOT NULL AUTO_INCREMENT,
 name VARCHAR(255) NOT NULL,
@@ -27,11 +27,12 @@ price DECIMAL(16,2) NOT NULL,
 PRIMARY KEY (id),
 INDEX cat_id (cat_id),
 FOREIGN KEY (cat_id) REFERENCES category(id) ON DELETE CASCADE
-); '''
+); 
+```
 
 Заполните таблицы некоторыми значениями:
 
-''' sql 
+``` sql 
 insert into category (name) values ("category 1");
 insert into category (name) values ("category 2");
 insert into category (name) values ("category 3");
@@ -45,7 +46,7 @@ insert into product (cat_id, name, price) values (3, "cat3_pname1", 0.567);
 insert into product (cat_id, name, price) values (3, "cat3_pname2", 54.21);
 insert into product (cat_id, name, price) values (4, "cat4_pname1", 99999.1);
 insert into product (cat_id, name, price) values (4, "cat4_pname2", 222.22);
-'''
+```
 
 Примечание: наполнить таблицу _product_ можно после запуска сервлета из веб-интерфейса
 
