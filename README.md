@@ -8,8 +8,7 @@
  - maven 3.3.9
  - Java 1.8
 
-Также перед запуском сервлета требуется создать базу данных __testdb__ с пользователем __root__ и паролем __test__  
-и таблицы _category_ и _product_ :
+Также перед запуском сервлета требуется создать базу данных __testdb__ с пользователем __root__ и паролем __test__ и таблицы _category_ и _product_ (вы можете поменять настройки БД в файле _src/main/resources/META-INF/persistence.xml_) :
 
 ``` sql 
 CREATE TABLE category
