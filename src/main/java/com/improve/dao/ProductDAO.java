@@ -12,5 +12,11 @@ public interface ProductDAO {
 	
 	Product getProductById(long id);
 	
+	void deleteProduct(Product product);
+	
+	void updateProduct(Product product);
+	
+	void addProduct(Product product);
+	
 	void addProduct(Category category, String name, BigDecimal price);
 }

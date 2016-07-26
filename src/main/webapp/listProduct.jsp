@@ -14,6 +14,7 @@
 	<div style="margin: 30px">
 		<p>
 		<form method="post">
+			<input type="hidden" name="pageName" value="listProduct" />
 			<table border=0>
 				<thead>
 					<tr>
@@ -53,9 +54,16 @@
 					<td><c:out value="${product.category.name}" /></td>
 					<td><c:out value="${product.name}" /></td>
 					<td><c:out value="${product.price}" /></td>
+					<td><a
+						href="CatalogServlet?action=edit&prodId=<c:out value="${product.id}"/>">Update</a></td>
+					<td><a
+						href="CatalogServlet?action=delete&prodId=<c:out value="${product.id}"/>">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<p>
+		<a href="CatalogServlet?action=insert">Add Product</a>
+	</p>
 </body>
 </html>
