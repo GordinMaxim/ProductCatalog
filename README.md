@@ -51,9 +51,9 @@ insert into product (cat_id, name, price) values (4, "cat4_pname2", 222.22);
 
 ## Установка
 
-1. Клонируйте репозиторий https://github.com/GordinMaxim/ProductCatalog.git или скачайте исходный код архивом и распакуйте 1
-2. В корневом каталоге __ProductCatalog__ выполните команду _mvn clean install_ 2
-3. Полученный .war-файл  в каталоге __ProductCatalog/target__  разверните в контейнере сервлетов Tomcat 3
-4. Перейдите по ссылке http://localhost:8080/Catalog/ 4
+1. Клонируйте репозиторий https://github.com/GordinMaxim/ProductCatalog.git или скачайте исходный код архивом и распакуйте 
+2. В корневом каталоге __ProductCatalog__ выполните команду _mvn clean install_ 
+3. Полученный .war-файл  в каталоге __ProductCatalog/target__  разверните в контейнере сервлетов Tomcat 
+4. Перейдите по ссылке http://localhost:8080/Catalog/ 
 
 Вместо сборки сервлета в консоли, можно импортировать проект в какую-либо IDE (Eclipse или Intellij IDEA) и развернуть сервлет в интегрированном в IDE контейнере сервлетов
